@@ -30,16 +30,17 @@ module.exports = function(passport){
                				, firstName: req.param('firstName')
                				, lastName: req.param('lastName')
                				};
-                        // save the user
 											db.insert(doc, function (err, newDoc) {
-
-															if (err){
+												if (err){
                                 console.log('Error in Saving user: '+err);
                                 throw err;
 																}
-                            console.log('User Registration succesful');
-                            return done(null, newDoc);
- 													};);
+												console.log('User Registration succesful');
+				                return done(null, newDoc);
+											});
+
+
+
                     }
                 });
             };
