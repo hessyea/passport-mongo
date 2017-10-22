@@ -8,11 +8,13 @@ var db = new Datastore({
 });
 
 
-var doc = { hello: ""
-               , username: ''
+var doc = {      username: ''
                , password: ''
                , email: ''
                , firstName: ''
                , lastName: ''
                };
-module.exports = doc;
+module.exports = db.insert(doc, function (err, newDoc) {   // Callback is optional
+  // newDoc is the newly inserted document, including its _id
+  // newDoc has no key called notToBeSaved since its value was undefined
+});

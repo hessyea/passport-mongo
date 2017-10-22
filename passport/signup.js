@@ -8,7 +8,7 @@ module.exports = function(passport){
             passReqToCallback : true // allows us to pass back the entire request to the callback
         },
         function(req, username, password, done) {
-		/*
+		
             findOrCreateUser = function(){
                 // find a user in Mongo with provided username
                 User.findOne({ 'username' :  username }, function(err, user) {
@@ -23,6 +23,7 @@ module.exports = function(passport){
                         return done(null, false, req.flash('message','User Already Exists'));
                     } else {
                         // if there is no user with that email
+				
                         // create the user
                         var newUser = new User();
 
@@ -45,12 +46,11 @@ module.exports = function(passport){
                     }
                 });
             };
-		*/
+		
             // Delay the execution of findOrCreateUser and execute the method
             // in the next tick of the event loop
-            //process.nextTick(findOrCreateUser);
+            process.nextTick(findOrCreateUser);
         })
-	return (null,null);
     );
 	
 	
