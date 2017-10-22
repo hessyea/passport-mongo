@@ -1,5 +1,5 @@
 
-var mongoose = require('nedb');
+var mongoose = require('nedb-model');
 
 module.exports = mongoose.model('User',{
 	id: String,
