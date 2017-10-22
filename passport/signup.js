@@ -24,23 +24,22 @@ module.exports = function(passport){
                     } else {
                         // if there is no user with that email
                         // create the user
-                        var doc = {      username: username
+												var doc = {      username: username
                				, password: createHash(password)
                				, email: req.param('email')
                				, firstName: req.param('firstName')
                				, lastName: req.param('lastName')
                				};
                         // save the user
-				db.insert(doc, function (err, newDoc) {
+											db.insert(doc, function (err, newDoc) {
 
-				if (err){
-                                console.log('Error in Saving user: '+err);  
-                                throw err;  
-				}
-                            console.log('User Registration succesful');    
+															if (err){
+                                console.log('Error in Saving user: '+err);
+                                throw err;
+																}
+                            console.log('User Registration succesful');
                             return done(null, newDoc);
- 				};
-                        });
+ 													};)
                     }
                 });
             };
