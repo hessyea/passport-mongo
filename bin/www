@@ -2,7 +2,16 @@
 var debug = require('debug')('passport-mongo');
 var app = require('../app');
 
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 8000);
+
+//nedb
+var Datastore = require('nedb');
+var db = new Datastore({
+  filename: 'goals.db', // Provide a path to the database file.
+  autoload: true, // Automatically load the database.
+  timestampData: true // Add and manage the fields createdAt and updatedAt.
+});
+
 
 var server = app.listen(app.get('port'), function() {
   debug('Express server listening on port ' + server.address().port);
