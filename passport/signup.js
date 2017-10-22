@@ -34,15 +34,23 @@ module.exports = function(passport){
                         newUser.firstName = req.param('firstName');
                         newUser.lastName = req.param('lastName');
 
+
+			var doc = {      username: username
+               				, password: createHash(password)
+               				, email: req.param('email')
+               				, firstName: req.param('firstName')
+               				, lastName: req.param('lastName')
+               				};
                         // save the user
-                        newUser.save(function(err) {
-                            if (err){
+				db.insert(doc, function (err, newDoc) {
+
+				if (err){
                                 console.log('Error in Saving user: '+err);  
                                 throw err;  
-                            }
+				}
                             console.log('User Registration succesful');    
-                            return done(null, newUser);
-                        });
+                            return done(null, newDoc);
+ 				};
                     }
                 });
             };
