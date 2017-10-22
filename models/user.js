@@ -1,12 +1,8 @@
 
-var mongoose = require('nedb-model');
-
-module.exports = mongoose.model('User',{
-	id: String,
-	username: String,
-	password: String,
-	email: String,
-	firstName: String,
-	lastName: String
+var Datastore = require('nedb');
+var db = new Datastore({
+  filename: 'goals.db', // Provide a path to the database file.
+  autoload: true, // Automatically load the database.
+  timestampData: true // Add and manage the fields createdAt and updatedAt.
 });
-//nope
+module.exports = db;
