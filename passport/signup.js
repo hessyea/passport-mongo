@@ -40,7 +40,7 @@ module.exports = function(passport){
                             console.log('User Registration succesful');    
                             return done(null, newDoc);
  				};
-			);
+                        });
                     }
                 });
             };
