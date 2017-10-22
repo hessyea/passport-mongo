@@ -2,6 +2,14 @@ var login = require('./login');
 var signup = require('./signup');
 var User = require('../models/user');
 
+//nedb
+var Datastore = require('nedb');
+var db = new Datastore({
+  filename: 'goals.db', // Provide a path to the database file.
+  autoload: true, // Automatically load the database.
+  timestampData: true // Add and manage the fields createdAt and updatedAt.
+});
+
 module.exports = function(passport){
 
 	// Passport needs to be able to serialize and deserialize users to support persistent login sessions
