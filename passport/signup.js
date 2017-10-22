@@ -30,7 +30,7 @@ module.exports = function(passport){
                				, firstName: req.param('firstName')
                				, lastName: req.param('lastName')
                				};
-											db.insert(doc, function (err, newDoc) {
+											User.insert(doc, function (err, newDoc) {
 												if (err){
                                 console.log('Error in Saving user: '+err);
                                 throw err;
