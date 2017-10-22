@@ -22,16 +22,14 @@ app.use(favicon());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
-app.use(cookieParser());
+app.use(express.cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Configuring Passport
 var passport = require('passport');
 var expressSession = require('express-session');
 // TODO - Why Do we need this key ?
-app.use(expressSession({secret: 'mySecretKey22',cookie:{
-     maxAge : 360000 // one hour in millis
-   }}));
+app.use(express.session({ key: 'express.sid', secret: 'keyboard catSS', store: SessionStore }));
 app.use(passport.initialize());
 app.use(passport.session());
 
