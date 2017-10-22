@@ -8,7 +8,7 @@ var isAuthenticated = function (req, res, next) {
 	if (req.isAuthenticated())
 		return next();
 	// if the user is not authenticated then redirect him to the login page
-	res.redirect('/signup');
+	res.redirect('/');
 }
 
 module.exports = function(passport){
@@ -22,7 +22,7 @@ module.exports = function(passport){
 	/* Handle Login POST */
 	router.post('/login', passport.authenticate('login', {
 		successRedirect: '/home',
-		failureRedirect: '/signup',
+		failureRedirect: '/',
 		failureFlash : true  
 	}));
 
@@ -34,7 +34,7 @@ module.exports = function(passport){
 	/* Handle Registration POST */
 	router.post('/signup', passport.authenticate('signup', {
 		successRedirect: '/home',
-		failureRedirect: '/',
+		failureRedirect: '/signup',
 		failureFlash : true  
 	}));
 
@@ -45,8 +45,8 @@ module.exports = function(passport){
 
 	/* Handle Logout */
 	router.get('/signout', function(req, res) {
-		//req.logout();
-		res.redirect('/home');
+		req.logout();
+		res.redirect('/');
 	});
 
 	return router;
