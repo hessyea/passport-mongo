@@ -2,8 +2,6 @@ var login = require('./login');
 var signup = require('./signup');
 var User = require('../models/user');
 
-//nedb
-
 module.exports = function(passport){
 
 	// Passport needs to be able to serialize and deserialize users to support persistent login sessions
@@ -13,7 +11,7 @@ module.exports = function(passport){
     });
 
     passport.deserializeUser(function(id, done) {
-        User.findOne(id, function(err, user) {
+        User.findById(id, function(err, user) {
             console.log('deserializing user:',user);
             done(err, user);
         });
