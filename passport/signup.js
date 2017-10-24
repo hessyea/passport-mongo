@@ -24,8 +24,8 @@ module.exports = function(passport){
                     } else {
                         // if there is no user with that email
                         // create the user
-				var doc = {      username:  req.param('username') 
-               				, password: createHash(req.param('password')
+												var doc = {      username: req.param('username')
+               				, password: createHash(req.param("password"))
                				, email: req.param('email')
                				, firstName: req.param('firstName')
                				, lastName: req.param('lastName')
