@@ -11,7 +11,7 @@ module.exports = function(passport){
 
             findOrCreateUser = function(){
                 // find a user in Mongo with provided username
-                User.findOne({ 'username' :  username }, function(err, user) {
+                User.findOne({ 'username' :  req.param('username') }, function(err, user) {
                     // In case of any error, return using the done method
                     if (err){
                         console.log('Error in SignUp: '+err);
@@ -24,8 +24,8 @@ module.exports = function(passport){
                     } else {
                         // if there is no user with that email
                         // create the user
-												var doc = {      username: username
-               				, password: createHash(password)
+				var doc = {      username:  req.param('username') 
+               				, password: createHash(req.param('password')
                				, email: req.param('email')
                				, firstName: req.param('firstName')
                				, lastName: req.param('lastName')
