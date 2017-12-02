@@ -11,8 +11,9 @@ module.exports = function(req) {
 				if (err){
                                 	console.log('Error in Saving user: '+err);
                                 	throw err;
+				} else {
+					return newDoc;
 				}
 				console.log('Game succesfully Cer8');
-				return null;
 				})};
 

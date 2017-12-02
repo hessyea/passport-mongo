@@ -58,8 +58,8 @@ module.exports = function(passport){
 	/* Handle GameStart POST */
 	router.post('/cr8gm',isAuthenticated , function (req, res) {
 
-	cregmJS(req);
-	res.redirect(req.get('referer'));
+	
+	res.return(cregmJS(req));
 	}
 	);
 
