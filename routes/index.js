@@ -67,7 +67,7 @@ module.exports = function(passport){
 		/* Handle GameStart POST */
 	router.post('/showgme',isAuthenticated , function (req, res) {
 			var x = null;
-			gamdb33.find({req.body.id}, function (err, docs) {
+			gamdb33.find(req.body.id, function (err, docs) {
   				x = docs;
 				res.render('gmess1', { gmedtta: x});
 		});
