@@ -2,10 +2,10 @@
 var gambd = require('./models/gamdb');
 
 
-module.exports = function(req, res) {
+module.exports = function(req) {
 
-	var doc = {			username: req.param('gmName')
-               				, password: createHash(req.param("password"))
+	var doc = {			username: req.body.gmName
+               				, password: req.body.password
                			};
 				gambd.insert(doc, function (err, newDoc) {
 				if (err){
