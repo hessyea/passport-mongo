@@ -13,6 +13,6 @@ module.exports = function(req, res) {
                                 	throw err;
 				}
 				console.log('Game succesfully Cer8');
-				return done(null);
+				return done(null,newDoc);
 				});
 
