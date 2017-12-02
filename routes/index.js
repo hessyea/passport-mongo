@@ -62,8 +62,8 @@ module.exports = function(passport){
 		successRedirect: '/game',
 		failureRedirect: '/',
 		failureFlash : true
-	};}
-	));
+	});}
+	);
 
 
 	/* GET show gne */
