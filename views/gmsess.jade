@@ -2,4 +2,14 @@ extends layout
 
 block content
 	each item in user
-		li=item.username
+		li=item.gmName
+		p = item._id
+		
+		br
+	br
+	br
+	form(class='form-adgm', action='/cr8gm', method='POST')
+		input(type='text', name='gmName' class='form-control', placeholder='Nme',required, autofocus)
+		input(type='password', name='password' class='form-control', placeholder='Password', required)
+		button(class='btn btn-lg btn-primary btn-block', type='submit') Cre8
+		span.clearfix

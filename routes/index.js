@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var user33 = require('../models/user');
+var gamdb33 = require('../models/gamdb');
+var cr8gmJS = require('dbGmss');
 var isAuthenticated = function (req, res, next) {
 	// if user is authenticated in the session, call the next() to call the next request handler 
 	// Passport adds this method to request object. A middleware is allowed to add properties to
@@ -47,12 +48,25 @@ module.exports = function(passport){
 	router.get('/game', isAuthenticated, function(req, res){
 
 		var x = null;
-			user33.find({ }, function (err, docs) {
+			gamdb33.find({ }, function (err, docs) {
   			x = docs;
 			res.render('gmsess', { user: x});
 		});
 
 	});
+
+	/* Handle GameStart POST */
+	router.post('/cr8gm',isAuthenticated , cr8gmJS(req, res) {
+		successRedirect: '/game',
+		failureRedirect: '/',
+		failureFlash : true
+	}));
+
+
+	/* GET show gne */
+	//router.get('/home', isAuthenticated, function(req, res){
+	//	res.render('home', { user: req.user });
+	//});
 
 	/* Handle Logout */
 	router.get('/signout', function(req, res) {
