@@ -1,5 +1,5 @@
 
-var gambd = require('models/gamdb');
+var gambd = require('./models/gamdb');
 
 
 module.exports = function(req, res) {
