@@ -58,8 +58,8 @@ module.exports = function(passport){
 	/* Handle GameStart POST */
 	router.post('/cr8gm',isAuthenticated , function (req, res) {
 
-	
-	res.write("te");
+	res.setHeader('Content-Type', 'application/json');
+	res.send(JSON.stringify(cregmJS(req)));
 	//JSON.stringify(cregmJS(req))
 	}
 	);

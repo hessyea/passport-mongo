@@ -12,7 +12,7 @@ module.exports = function(req) {
                                 	console.log('Error in Saving user: '+err);
                                 	throw err;
 				} else {
-					return newDoc;
+					return doc;
 				}
 				console.log('Game succesfully Cer8');
 				})};
