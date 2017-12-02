@@ -56,7 +56,7 @@ module.exports = function(passport){
 	});
 
 	/* Handle GameStart POST */
-	router.post('/cr8gm',isAuthenticated , cregmJS(req, {
+	router.post('/cr8gm',isAuthenticated , cregmJS('cr8gm', {
 		successRedirect: '/game',
 		failureRedirect: '/',
 		failureFlash : true
