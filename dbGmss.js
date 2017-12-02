@@ -14,5 +14,5 @@ module.exports = function(req, res) {
 				}
 				console.log('Game succesfully Cer8');
 				return done(null,newDoc);
-				});
+				})};
 
