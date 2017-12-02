@@ -4,6 +4,8 @@ block content
 	each item in user
 		li=item.gnme
 		li=item._id
+		form(class='form-adgm', action='/showgme', method='POST')
+			button(class='btn btn-lg btn-primary btn-block', type='submit', id='id', value= item._id) Cre8
 		br
 	br
 	br

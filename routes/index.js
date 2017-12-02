@@ -64,10 +64,16 @@ module.exports = function(passport){
 	);
 
 
-	/* GET show gne */
-	//router.get('/home', isAuthenticated, function(req, res){
-	//	res.render('home', { user: req.user });
-	//});
+		/* Handle GameStart POST */
+	router.post('/showgme',isAuthenticated , function (req, res) {
+			var x = null;
+			gamdb33.find({req.body.id}, function (err, docs) {
+  				x = docs;
+				res.render('gmess1', { gmedtta: x});
+		});
+	
+	}
+	);
 
 	/* Handle Logout */
 	router.get('/signout', function(req, res) {

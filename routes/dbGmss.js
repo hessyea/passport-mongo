@@ -4,7 +4,7 @@ var gambd = require('../models/gamdb');
 
 module.exports = function(req) {
 
-	var doc = {			username: req.body.gmName
+	var doc = {			gnme: req.body.gmName
                				, password: req.body.password
                			};
 				gambd.insert(doc, function (err, newDoc) {
