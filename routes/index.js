@@ -61,7 +61,7 @@ module.exports = function(passport){
 		failureRedirect: '/',
 		failureFlash : true
 	}
-	);
+	));
 
 
 	/* GET show gne */
