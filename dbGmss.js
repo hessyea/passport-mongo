@@ -2,6 +2,7 @@
 var gambd = require('../models/gamdb');
 
 
+
 module.exports = function(req) {
 
 	var doc = {			username: req.body.gmName
