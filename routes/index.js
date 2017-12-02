@@ -59,7 +59,7 @@ module.exports = function(passport){
 	router.post('/cr8gm',isAuthenticated , function (req, res) {
 
 	
-	res.write(res.json(cregmJS(req)));
+	res.write(JSON.stringify(cregmJS(req)));
 	}
 	);
 
