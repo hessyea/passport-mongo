@@ -1,5 +1,5 @@
 
-var Gambd = require('../models/gamdb');
+var gambd = require('models/gamdb');
 
 
 module.exports = function(req, res) {
@@ -7,7 +7,7 @@ module.exports = function(req, res) {
 	var doc = {			username: req.param('gmName')
                				, password: createHash(req.param("password"))
                			};
-				Gambd.insert(doc, function (err, newDoc) {
+				gambd.insert(doc, function (err, newDoc) {
 				if (err){
                                 	console.log('Error in Saving user: '+err);
                                 	throw err;
