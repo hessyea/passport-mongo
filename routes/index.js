@@ -49,8 +49,9 @@ module.exports = function(passport){
 		var x = null;
 			user33.find({ }, function (err, docs) {
   			x = docs;
+			res.render('gmsess', { user: x});
 		});
-		res.render('gmsess', { user: x});
+
 	});
 
 	/* Handle Logout */
