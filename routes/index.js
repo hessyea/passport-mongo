@@ -45,9 +45,7 @@ module.exports = function(passport){
 
 	/* GET Games Page */
 	router.get('/game', isAuthenticated, function(req, res){
-		res.render('gmsess', { user: User.find({}).sort({
-    			updatedAt: -1
- 	 	}) });
+		res.render('gmsess', { user: User});
 	});
 
 	/* Handle Logout */
