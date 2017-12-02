@@ -69,7 +69,7 @@ module.exports = function(passport){
 			var x = null;
 			gamdb33.find(req.body.id, function (err, docs) {
   				x = docs;
-				res.render('gmess1', { gmedtta: x});
+				res.render('gmess1', { gmedtta: x, idGot: req.body.id});
 		});
 	
 	}
