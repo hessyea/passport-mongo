@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var gamdb33 = require('../models/gamdb');
-var cregmJS = require('../dbGmss.js');
+var cregmJS = require('dbGmss.js');
 var isAuthenticated = function (req, res, next) {
 	// if user is authenticated in the session, call the next() to call the next request handler 
 	// Passport adds this method to request object. A middleware is allowed to add properties to
@@ -56,11 +56,13 @@ module.exports = function(passport){
 	});
 
 	/* Handle GameStart POST */
-	router.post('/cr8gm',isAuthenticated , cregmJS('cr8gm', {
+	router.post('/cr8gm',isAuthenticated , function (req, res) {
+
+	cregmJS(req, {
 		successRedirect: '/game',
 		failureRedirect: '/',
 		failureFlash : true
-	}
+	};}
 	));
 
 
