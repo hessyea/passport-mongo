@@ -85,7 +85,7 @@ module.exports = function(passport){
 			var secondTerm = req.body.val;
 			var myObj={req.body.field : req.body.val};
 			var call22 = {$set: myObj};
-			console.log(call22.toString());
+			console.log(call22);
 			gamdb33.update({ _id: req.body.id },call22,
 				{ multi: false },
 				function (err, numReplaced) {
