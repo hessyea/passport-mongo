@@ -81,8 +81,8 @@ module.exports = function(passport){
 	);
 		/* Handle Game POST */
 	router.post('/updtGme',isAuthenticated , function (req, res) {
-			var callToRep = new String("{$set: {"+req.body.field+": "+req.body.val+"}}");
-			gamdb33.update({ _id: req.body.id }, callToRep,
+			//var callToRep = new String("{$set: {"+req.body.field+": "+req.body.val+"}}");
+			gamdb33.update({ _id: req.body.id }, {$set: {req.body.field:req.body.val}},
 				{ multi: false },
 				function (err, numReplaced) {
 				//res.render('gmess1', { gmedtta: x, idGot: req.body.id});
