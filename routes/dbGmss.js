@@ -15,7 +15,7 @@ module.exports = function(req) {
 				}
 				
 				console.log('Game succesfully Cer8' + newDoc._id);
-					evilGlob =  newDoc._id;
+					return newDoc._id;
 
 				})
 					//gambd.find(req.body.gmName,function (err, docs) {
@@ -29,7 +29,7 @@ module.exports = function(req) {
         				//		return result;
     					//	}
 					//});
-					return evilGlob;
+					//return evilGlob;
 
 				};
 
