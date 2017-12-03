@@ -59,7 +59,10 @@ module.exports = function(passport){
 	router.post('/cr8gm',isAuthenticated , function (req, res) {
 
 	res.setHeader('Content-Type', 'application/json');
-	res.send("id:" + cregmJS(req));
+	gamdb33.insert(cregmJS(req),function (err, newDoc) {
+		res.send("id:" + newDoc_id);
+	}
+	
 	//JSON.stringify(cregmJS(req))
 	}
 	);
