@@ -89,7 +89,7 @@ module.exports = function(passport){
 				{ multi: false },
 				function (err, numReplaced) {
 				//res.render('gmess1', { gmedtta: x, idGot: req.body.id});
-				res.send((numReplaced.toString());
+				res.send(numReplaced.toString());
 		});
 
 	}
