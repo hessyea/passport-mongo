@@ -83,9 +83,9 @@ module.exports = function(passport){
 	router.post('/updtGme',isAuthenticated , function (req, res) {
 			var firstTerm = req.body.field;
 			var secondTerm = req.body.val;
-			var myObj={firstTerm : secondTerm}
-			var call22 = {$set: myObj}
-			gamdb33.update({ _id: req.body.id }, call22,
+			var myObj={firstTerm : secondTerm};
+			var call22 = {$set: myObj};
+			gamdb33.update({ _id: req.body.id },call22,
 				{ multi: false },
 				function (err, numReplaced) {
 				//res.render('gmess1', { gmedtta: x, idGot: req.body.id});
