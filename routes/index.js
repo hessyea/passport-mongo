@@ -103,13 +103,12 @@ module.exports = function(passport){
 		} else{
 			res.send(newDoc._id);
 		}
+	})
 	});
 	/* Handle Logout */
 	router.get('/signout', function(req, res) {
 		req.logout();
 		res.redirect('/');
 	});
-
-	return router;
-	}
+return router;
 }
