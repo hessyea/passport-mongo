@@ -14,8 +14,8 @@ module.exports = function(req) {
                                 	throw err;
 				}
 				
-				console.log('Game succesfully Cer8' + newDoc[0]);
-					evilGlob =  newDoc[0];
+				console.log('Game succesfully Cer8' + newDoc._id);
+					evilGlob =  newDoc._id;
 
 				})
 					//gambd.find(req.body.gmName,function (err, docs) {
