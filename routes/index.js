@@ -3,7 +3,7 @@ var router = express.Router();
 var gamdb33 = require('../models/gamdb');
 var cregmJS = require('./dbGmss.js');
 var isAuthenticated = function (req, res, next) {
-	// if user is authenticated in the session, call the next() to call the next request handler 
+	// if user is authenticated in the session, call the next() to call the next request handler
 	// Passport adds this method to request object. A middleware is allowed to add properties to
 	// request and response objects
 	if (req.isAuthenticated())
@@ -24,7 +24,7 @@ module.exports = function(passport){
 	router.post('/login', passport.authenticate('login', {
 		successRedirect: '/home',
 		failureRedirect: '/',
-		failureFlash : true  
+		failureFlash : true
 	}));
 
 	/* GET Registration Page */
@@ -36,7 +36,7 @@ module.exports = function(passport){
 	router.post('/signup', passport.authenticate('signup', {
 		successRedirect: '/home',
 		failureRedirect: '/signup',
-		failureFlash : true  
+		failureFlash : true
 	}));
 
 	/* GET Home Page */
@@ -62,7 +62,7 @@ module.exports = function(passport){
 	gamdb33.insert(cregmJS(req),function (err, newDoc) {
 		res.send(newDoc._id);
 	});
-	
+
 	//JSON.stringify(cregmJS(req))
 	}
 	);
@@ -76,19 +76,19 @@ module.exports = function(passport){
 				//res.render('gmess1', { gmedtta: x, idGot: req.body.id});
 				res.send(JSON.stringify(docs));
 		});
-	
+
 	}
 	);
 		/* Handle Game POST */
 	router.post('/updtGme',isAuthenticated , function (req, res) {
 			var callToRep = new String("{$set: {"+req.body.field+": "+req.body.val+"}}");
-			gamdb33.update({ _id: req.body.id }, callToRep, 
-				{ multi: false }, 
+			gamdb33.update({ _id: req.body.id }, callToRep,
+				{ multi: false },
 				function (err, numReplaced) {
 				//res.render('gmess1', { gmedtta: x, idGot: req.body.id});
 				res.send(numReplaced);
 		});
-	
+
 	}
 	);
 
@@ -111,10 +111,5 @@ module.exports = function(passport){
 	});
 
 	return router;
+	}
 }
-
-
-
-
-
-
