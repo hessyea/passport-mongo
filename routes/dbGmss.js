@@ -7,7 +7,7 @@ module.exports = function(req) {
 	var doc = {			gnme: req.body.gmName
                				, password: req.body.password
                			};
-				return gambd.insert(doc, function (err, newDoc) {
+				gambd.insert(doc, function (err, newDoc) {
 				if (err){
                                 	console.log('Error in Saving user: '+err);
                                 	throw err;
@@ -19,6 +19,14 @@ module.exports = function(req) {
 					//gambd.find(req.body.gmName,function (err, docs) {
 					
 					//}
-					//return doc;
+					return gambd.find({ gnme: req.body.gmName })
+  					.exec(function(err, result) {
+    						if (err) {
+        						return err;
+    						} else {
+        						return result;
+    						}
+					});
+
 				};
 
