@@ -8,7 +8,7 @@ module.exports = function(req) {
 					gnme: req.body.gmName
                				, password: req.body.password
                			};
-				gambd.insert(doc,function (err, newDoc) {
+				gambd.insert(doc,evilGlob = function (err, newDoc) {
 				if (err){
                                 	console.log('Error in Saving game: '+err);
                                 	throw err;
@@ -29,7 +29,7 @@ module.exports = function(req) {
         				//		return result;
     					//	}
 					//});
-					//return evilGlob;
+					return evilGlob;
 
 				};
 
