@@ -60,7 +60,7 @@ module.exports = function(passport){
 
 	res.setHeader('Content-Type', 'application/json');
 	gamdb33.insert(cregmJS(req),function (err, newDoc) {
-		res.send("id:" + newDoc._id);
+		res.send(newDoc._id);
 	});
 	
 	//JSON.stringify(cregmJS(req))
@@ -73,12 +73,37 @@ module.exports = function(passport){
 			var x = null;
 			gamdb33.find(req.body.id, function (err, docs) {
   				x = docs;
-				res.render('gmess1', { gmedtta: x, idGot: req.body.id});
+				//res.render('gmess1', { gmedtta: x, idGot: req.body.id});
+				res.send(JSON.stringify(docs));
+		});
+	
+	}
+	);
+		/* Handle Game POST */
+	router.post('/updtGme',isAuthenticated , function (req, res) {
+			gamdb33.update({ _id: req.body.id }, 
+				{ $set: { req.body.field: req.body.val } }, 
+				{ multi: false }, 
+				function (err, numReplaced) {
+				//res.render('gmess1', { gmedtta: x, idGot: req.body.id});
+				res.send(numReplaced);
 		});
 	
 	}
 	);
 
+
+	/* Match GameStart POST */
+	router.post('/matchMe',isAuthenticated , function (req, res) {
+
+	res.setHeader('Content-Type', 'application/json');
+	gamdb33.findOne({ p1Name: req.body.pName},function (err, newDoc) {
+		if(err){
+			res.send("null");
+		} else{
+			res.send(newDoc._id);
+		}
+	});
 	/* Handle Logout */
 	router.get('/signout', function(req, res) {
 		req.logout();
