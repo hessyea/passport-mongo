@@ -60,7 +60,7 @@ module.exports = function(passport){
 
 	res.setHeader('Content-Type', 'application/json');
 	gamdb33.insert(cregmJS(req),function (err, newDoc) {
-		res.send("id:" + newDoc_id);
+		res.send("id:" + newDoc._id);
 	});
 	
 	//JSON.stringify(cregmJS(req))
