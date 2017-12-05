@@ -84,7 +84,7 @@ module.exports = function(passport){
 			var x = null;
 			gamdb33.findOne({_id: req.body.mpName}, function (err, docs) {
 				//res.render('gmess1', { gmedtta: x, idGot: req.body.id});
-				res.send(JSON.stringify(docs));
+				res.send(docs.map);
 		});
 
 	}
