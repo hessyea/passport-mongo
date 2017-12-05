@@ -93,11 +93,10 @@ module.exports = function(passport){
 	router.post('/sndMap',isAuthenticated , function (req, res) {
 
 	res.setHeader('Content-Type', 'application/json');
-	var map = {
-		map: req.body.maP
-	}
-	gamdb33.insert(map,function (err, newDoc) {
-		res.send(newDoc._id);
+	var map = {map: req.body.maP};
+		gamdb33.insert(map,function (err, newDoc) {
+			res.send(newDoc._id);
+		})
 	});
 
 		/* Handle Game POST */
