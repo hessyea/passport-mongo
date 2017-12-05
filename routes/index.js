@@ -83,6 +83,7 @@ module.exports = function(passport){
 	router.post('/recMap',isAuthenticated , function (req, res) {
 			gamdb33.findOne({_id: req.body.mpName}, function (err, docs) {
 				//res.render('gmess1', { gmedtta: x, idGot: req.body.id});
+				console.log(docs.map);
 				res.send(docs.map);
 
 		});
