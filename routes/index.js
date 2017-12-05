@@ -81,10 +81,10 @@ module.exports = function(passport){
 
 
 	router.post('/recMap',isAuthenticated , function (req, res) {
-			var x = null;
 			gamdb33.findOne({_id: req.body.mpName}, function (err, docs) {
 				//res.render('gmess1', { gmedtta: x, idGot: req.body.id});
 				res.send(docs.map);
+
 		});
 
 	}
@@ -94,6 +94,7 @@ module.exports = function(passport){
 
 	res.setHeader('Content-Type', 'application/json');
 	var map = {map: req.body.maP};
+	console.log(req.body.maP);
 		gamdb33.insert(map,function (err, newDoc) {
 			res.send(newDoc._id);
 		})
