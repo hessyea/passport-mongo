@@ -128,8 +128,8 @@ module.exports = function(passport){
 			console.log("docsMyGame-------");
 			if(docsMyGame == null){
 				console.log("notNull-------");
-				gamdb33.find({lookingFP: 'true'}).sort({ createdAt: -1 }).exec(function (err, docsOther) {
-					console.log(docsOther+"-------");
+				gamdb33.find({lookingFP: "true"}).sort({ createdAt: 1 }).exec(function (err, docsOther) {
+					console.log(docsOther+"-------"+err);
 					if(docsOther[0]){
 						console.log(docsOther+"---!= null");
 						gamdb33.findOne({_id: req.body._id}, function (err, docsSelf) {
