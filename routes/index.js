@@ -128,7 +128,7 @@ module.exports = function(passport){
 			console.log(docsMyGame._id+"-------");
 			if(err){
 
-				gamdb33.find(lookingFP: { $exists: true }, { lookingFP: 'true' }, $not: { _id: req.body._id }).sort({ createdAt: -1 }).exec(function (err, docsOther) {
+				gamdb33.find({lookingFP: { $exists: true }}, { lookingFP: 'true' }, {$not: { _id: req.body._id }}).sort({ createdAt: -1 }).exec(function (err, docsOther) {
 					if(!err && docsOther.length()> 0){
 						gamdb33.findOne({_id: req.body._id}, function (err, docsSelf) {
 							gamdb33.insert(createMtchSC(docsSelf,docsOther[0]),function (err, newDoc) {
