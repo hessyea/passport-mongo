@@ -145,7 +145,7 @@ module.exports = function(passport){
 
 										});
 									//res.render('gmess1', { gmedtta: x, idGot: req.body.id});
-								console.log("+++ null");
+								console.log("d!= null")
 								res.send(newDoc._id+" Name: "+docsOther.p1Name);
 							});
 
