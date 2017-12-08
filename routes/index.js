@@ -151,7 +151,7 @@ module.exports = function(passport){
 								});
 							} else {
 
-								res.send("Wait5")
+								res.send("Wait5");
 							}
 							});
 			} else {
