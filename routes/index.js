@@ -129,7 +129,7 @@ module.exports = function(passport){
 			if(docsMyGame == null){
 
 				gamdb33.find({lookingFP: { $exists: true }}, { lookingFP: 'true' }, {$not: { _id: req.body._id }}).sort({ createdAt: -1 }).exec(function (err, docsOther) {
-					if(!err && docsOther.length()> 0){
+					if(docsOther != null){
 						gamdb33.findOne({_id: req.body._id}, function (err, docsSelf) {
 							gamdb33.insert(createMtchSC(docsSelf,docsOther[0]),function (err, newDoc) {
 								gamdb33.update({ _id: req.body._id },setVal("lookingFP","false"),
