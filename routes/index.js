@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var gamdb33 = require('../models/gamdb');
 var cregmJS = require('./dbGmss.js');
+var createMtchSC = require('./cre8MC.js');
+var setVal = require('./setMe.js');
 var isAuthenticated = function (req, res, next) {
 	// if user is authenticated in the session, call the next() to call the next request handler
 	// Passport adds this method to request object. A middleware is allowed to add properties to
@@ -86,7 +88,7 @@ module.exports = function(passport){
 				console.log(docs.map22+"-------");
 				res.send(docs.map22);
 
-		});
+				});
 
 	}
 	);
@@ -118,6 +120,51 @@ module.exports = function(passport){
 
 	}
 	);
+
+	/* Match GameStart POST */
+	router.post('/autoMatch',isAuthenticated , function (req, res) {
+		gamdb33.findOne({p2Name: req.body.myID}, function (err, docsMyGame) {
+			//res.render('gmess1', { gmedtta: x, idGot: req.body.id});
+			console.log(docsMyGame._id+"-------");
+			if(err){
+
+				gamdb33.find(lookingFP: { $exists: true }, { lookingFP: 'true' }, $not: { _id: req.body._id }).sort({ createdAt: -1 }).exec(function (err, docsOther) {
+					if(!err && docsOther.length()> 0){
+						gamdb33.findOne({_id: req.body._id}, function (err, docsSelf) {
+							gamdb33.insert(createMtchSC(docsSelf,docsOther[0]),function (err, newDoc) {
+								gamdb33.update({ _id: req.body._id },setVal("lookingFP","false"),
+									{ multi: false },
+									function (err, numReplaced) {
+
+									});
+								gamdb33.update({ _id: docsOther[0]._id },setVal("lookingFP","false"),
+										{ multi: false },
+										function (err, numReplaced) {
+
+										});
+									//res.render('gmess1', { gmedtta: x, idGot: req.body.id});
+
+								res.send(newDoc._id);
+							});
+
+								});
+							} else {
+
+								res.send("Wait5")
+							}
+							});
+			} else {
+
+				res.send(docsMyGame._id);
+
+			}
+
+
+	  // docs is [doc3, doc1]
+
+
+	});
+});
 
 
 	/* Match GameStart POST */

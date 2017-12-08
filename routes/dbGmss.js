@@ -11,7 +11,8 @@ module.exports = function(req) {
 					, curryPos: req.body.curryPos
 					, shotXY: req.body.shotXY
 					, st2nd: req.body.st2nd
-					,mpp: req.body.mapID
+					, mpp: req.body.mapID
+					, lookingFP: req.body.lf
 
                			};
 				return doc;
