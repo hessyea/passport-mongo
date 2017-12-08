@@ -133,20 +133,20 @@ module.exports = function(passport){
 					if(docsOther[0]){
 						console.log(docsOther+"---!= null");
 						gamdb33.findOne({_id: req.body._id}, function (err, docsSelf) {
-							gamdb33.insert(createMtchSC(docsSelf,docsOther),function (err, newDoc) {
+							gamdb33.insert(createMtchSC(docsSelf,docsOther[0]),function (err, newDoc) {
 								gamdb33.update({ _id: req.body._id },setVal("lookingFP","false"),
 									{ multi: false },
 									function (err, numReplaced) {
 
 									});
-								gamdb33.update({ _id: docsOther._id },setVal("lookingFP","false"),
+								gamdb33.update({ _id: docsOther[0]._id },setVal("lookingFP","false"),
 										{ multi: false },
 										function (err, numReplaced) {
 
 										});
 									//res.render('gmess1', { gmedtta: x, idGot: req.body.id});
 								console.log("d!= null")
-								res.send(newDoc._id+" Name: "+docsOther.p1Name);
+								res.send(newDoc._id+" Name: "+docsOther[0].p1Name);
 							});
 
 								});
