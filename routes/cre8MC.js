@@ -4,8 +4,8 @@ module.exports = function(docsSelf,docsOther) {
 				var doc = {
             gmeStatus: "starting"
 					, syncTime: ""
-					, p1Name: docsSelf.pID
-					, p2Name: docsOther.pID
+					, p1Name: docsSelf.p1Name
+					, p2Name: docsOther.p1Name
 					, curryPos: ""
 					, shotXY: ""
 					, st2nd: ""
