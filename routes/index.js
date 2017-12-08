@@ -125,9 +125,9 @@ module.exports = function(passport){
 	router.post('/autoMatch',isAuthenticated , function (req, res) {
 		gamdb33.findOne({p2Name: req.body.myID}, function (err, docsMyGame) {
 			//res.render('gmess1', { gmedtta: x, idGot: req.body.id});
-			//console.log(docsMyGame._id+"-------");
+			console.log("docsMyGame-------");
 			if(docsMyGame == null){
-
+				console.log("notNull-------");
 				gamdb33.find({lookingFP: { $exists: true }, lookingFP: 'true' , $not: { _id: req.body._id }}).sort({ createdAt: -1 }).exec(function (err, docsOther) {
 					console.log(docsOther+"-------");
 					if(docsOther != null){
