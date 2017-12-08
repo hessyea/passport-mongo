@@ -125,7 +125,7 @@ module.exports = function(passport){
 	router.post('/autoMatch',isAuthenticated , function (req, res) {
 		gamdb33.findOne({p2Name: req.body.myID}, function (err, docsMyGame) {
 			//res.render('gmess1', { gmedtta: x, idGot: req.body.id});
-			console.log(docsMyGame._id+"-------");
+			//console.log(docsMyGame._id+"-------");
 			if(err){
 
 				gamdb33.find({lookingFP: { $exists: true }}, { lookingFP: 'true' }, {$not: { _id: req.body._id }}).sort({ createdAt: -1 }).exec(function (err, docsOther) {
@@ -144,7 +144,7 @@ module.exports = function(passport){
 										});
 									//res.render('gmess1', { gmedtta: x, idGot: req.body.id});
 
-								res.send(newDoc._id);
+								res.send(newDoc._id+" Name: "+docsOther[0].p1Name);
 							});
 
 								});
@@ -155,7 +155,7 @@ module.exports = function(passport){
 							});
 			} else {
 
-				res.send(docsMyGame._id);
+				res.send(docsMyGame._id+" Name: "+docsMyGame.p2Name);
 
 			}
 
