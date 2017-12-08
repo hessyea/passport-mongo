@@ -131,6 +131,7 @@ module.exports = function(passport){
 				gamdb33.find({lookingFP: { $exists: true }, lookingFP: 'true' , $not: { _id: req.body._id }}).sort({ createdAt: -1 }).exec(function (err, docsOther) {
 					console.log(docsOther+"-------");
 					if(docsOther != null){
+						console.log(docsOther+"---!= null");
 						gamdb33.findOne({_id: req.body._id}, function (err, docsSelf) {
 							gamdb33.insert(createMtchSC(docsSelf,docsOther),function (err, newDoc) {
 								gamdb33.update({ _id: req.body._id },setVal("lookingFP","false"),
@@ -144,7 +145,7 @@ module.exports = function(passport){
 
 										});
 									//res.render('gmess1', { gmedtta: x, idGot: req.body.id});
-
+								console.log("+++ null");
 								res.send(newDoc._id+" Name: "+docsOther.p1Name);
 							});
 
