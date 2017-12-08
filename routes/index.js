@@ -126,7 +126,7 @@ module.exports = function(passport){
 		gamdb33.findOne({p2Name: req.body.myID}, function (err, docsMyGame) {
 			//res.render('gmess1', { gmedtta: x, idGot: req.body.id});
 			//console.log(docsMyGame._id+"-------");
-			if(docsMyGame.length()> 0){
+			if(docsMyGame == null){
 
 				gamdb33.find({lookingFP: { $exists: true }}, { lookingFP: 'true' }, {$not: { _id: req.body._id }}).sort({ createdAt: -1 }).exec(function (err, docsOther) {
 					if(!err && docsOther.length()> 0){
