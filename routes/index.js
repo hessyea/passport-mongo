@@ -75,7 +75,24 @@ module.exports = function(passport){
 			var x = null;
 			gamdb33.findOne({_id: req.body.pName}, function (err, docs) {
 				//res.render('gmess1', { gmedtta: x, idGot: req.body.id});
-				res.send(JSON.stringify(docs));
+				var doc = {
+						gmeStatus: docs.gmeStatus
+					, syncTime: docs.syncTime
+					, p1Name: docsSelf.p1Name
+					, p2Name: docsOther.p2Name
+					, p1Stat: docsSelf.p1Stat
+					, p2Stat: docsSelf.p2Stat
+					, curryPos: docsSelf.curryPos
+					, shotXY1: docsSelf.shotXY1
+					, shotXY2: docsOther.shotXY2
+					, winner: docsOther.winner
+
+										};
+
+
+
+
+				res.send(JSON.stringify(doc));
 		});
 
 	}
