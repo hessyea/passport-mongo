@@ -78,14 +78,14 @@ module.exports = function(passport){
 				var doc = {
 						gmeStatus: docs.gmeStatus
 					, syncTime: docs.syncTime
-					, p1Name: docsSelf.p1Name
-					, p2Name: docsOther.p2Name
-					, p1Stat: docsSelf.p1Stat
-					, p2Stat: docsSelf.p2Stat
-					, curryPos: docsSelf.curryPos
-					, shotXY1: docsSelf.shotXY1
-					, shotXY2: docsOther.shotXY2
-					, winner: docsOther.winner
+					, p1Name: docs.p1Name
+					, p2Name: docs.p2Name
+					, p1Stat: docs.p1Stat
+					, p2Stat: docs.p2Stat
+					, curryPos: docs.curryPos
+					, shotXY1: docs.shotXY1
+					, shotXY2: docs.shotXY2
+					, winner: docs.winner
 
 										};
 
