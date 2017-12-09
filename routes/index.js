@@ -83,10 +83,15 @@ module.exports = function(passport){
 
 
 	router.post('/recMap',isAuthenticated , function (req, res) {
-			gamdb33.findOne({_id: req.body.mpName}, function (err, docs) {
+			gamdb33.findOne({_id: req.body._id}, function (err, docs) {
 				//res.render('gmess1', { gmedtta: x, idGot: req.body.id});
-				console.log(docs.map22+"-------");
-				res.send(docs.map22);
+				//console.log(docs.map22+"-------");
+				if(req.body.mNR == "1"){
+					res.send(docs.mppP1);
+			  }
+				else if (req.body.mNR == "2") {
+					res.send(docs.mppP2);
+				}
 
 				});
 
@@ -98,9 +103,11 @@ module.exports = function(passport){
 	res.setHeader('Content-Type', 'application/json');
 	var map = {map22: req.body.maP};
 	console.log(req.body.maP);
-		gamdb33.insert(map,function (err, newDoc) {
-			res.send(newDoc._id);
-		})
+	gamdb33.update({ _id: req.body.gID },setVal(req.body.pmNR,req.body.maP),
+			{ multi: false },
+			function (err, numReplaced) {
+
+			});
 	});
 
 		/* Handle Game POST */
@@ -146,7 +153,7 @@ module.exports = function(passport){
 										});
 									//res.render('gmess1', { gmedtta: x, idGot: req.body.id});
 								console.log("d!= null")
-								res.send(newDoc._id+" Name: "+docsOther[0].p1Name);
+								res.send(newDoc._id+";1");
 							});
 
 								});
@@ -156,8 +163,12 @@ module.exports = function(passport){
 							}
 							});
 			} else {
+				gamdb33.update({ _id: docsMyGame._id },setVal("gmeStatus","2"),
+						{ multi: false },
+						function (err, numReplaced) {
 
-				res.send(docsMyGame._id+" Name: "+docsMyGame.p2Name);
+						});
+				res.send(docsMyGame._id+";2");
 
 			}
 

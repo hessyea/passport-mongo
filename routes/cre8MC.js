@@ -6,9 +6,12 @@ module.exports = function(docsSelf,docsOther) {
 					, syncTime: ""
 					, p1Name: docsSelf.p1Name
 					, p2Name: docsOther.p1Name
+					, p1Stat: ""
+					, p2Stat: ""
 					, curryPos: ""
-					, shotXY: ""
-					, st2nd: ""
+					, shotXY1: docsSelf.myxY
+					, shotXY2: docsOther.myxY
+					, winner: ""
 					, mppP1: ""
 					, mppP2: ""
 
