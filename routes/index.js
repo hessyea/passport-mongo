@@ -123,7 +123,7 @@ module.exports = function(passport){
 	gamdb33.update({ _id: req.body.gID },setVal(req.body.pmNR,req.body.maP),
 			{ multi: false },
 			function (err, numReplaced) {
-
+					res.send("ok");
 			});
 	});
 
@@ -180,7 +180,7 @@ module.exports = function(passport){
 							}
 							});
 			} else {
-				
+
 				res.send(docsMyGame._id+";2");
 
 			}
