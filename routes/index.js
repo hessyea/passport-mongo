@@ -180,11 +180,7 @@ module.exports = function(passport){
 							}
 							});
 			} else {
-				gamdb33.update({ _id: docsMyGame._id },setVal("gmeStatus","2"),
-						{ multi: false },
-						function (err, numReplaced) {
-
-						});
+				
 				res.send(docsMyGame._id+";2");
 
 			}
