@@ -8,6 +8,7 @@ module.exports = function(req) {
 					, syncTime: req.body.syncTime
 					, p1Name: req.body.p1Name
 					, p2Name: req.body.p2Name
+					, myxY: req.body.myxY
 					, lookingFP: req.body.lf
 
                			};
