@@ -5,7 +5,7 @@ module.exports = function(docsSelf,docsOther) {
             gmeStatus: "starting"
 					, syncTime: ""
 					, p1Name: docsSelf.p1Name
-					, p2Name: docsOther.p1Name
+					, p2Name: docsOther._id
 					, p1Stat: ""
 					, p2Stat: ""
 					, curryPos: ""
