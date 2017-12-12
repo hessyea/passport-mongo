@@ -1,5 +1,5 @@
 
-module.exports = function(req) {
+module.exports = function(req,date22) {
 
 				var doc = {
 					gnme: req.body.gmName
@@ -10,6 +10,7 @@ module.exports = function(req) {
 					, p2Name: req.body.p2Name
 					, myxY: req.body.myxY
 					, lookingFP: req.body.lf
+					, timeout: date22
 
                			};
 				return doc;

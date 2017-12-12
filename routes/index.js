@@ -61,7 +61,7 @@ module.exports = function(passport){
 	router.post('/cr8gm',isAuthenticated , function (req, res) {
 
 	res.setHeader('Content-Type', 'application/json');
-	gamdb33.insert(cregmJS(req),function (err, newDoc) {
+	gamdb33.insert(cregmJS(req,new Date()),function (err, newDoc) {
 		res.send(newDoc._id);
 	});
 
@@ -175,6 +175,12 @@ module.exports = function(passport){
 
 								});
 							} else {
+
+								gamdb33.update({ _id: req.body._id },setVal("timeout",new Date()),
+										{ multi: false },
+										function (err, numReplaced) {
+
+										});
 
 								res.send("Wait5");
 							}
