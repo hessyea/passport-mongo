@@ -150,6 +150,7 @@ module.exports = function(passport){
 
 	router.post('/checkin',isAuthenticated , function (req, res) {
 		var pupdte;
+		console.log(req.body.pNr"+++");
 		if(req.body.pNr=="1"){
 				pupdte = setVal("p1cin",new Date());
 		}
