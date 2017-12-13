@@ -75,9 +75,8 @@ module.exports = function(passport){
 			var x = null;
 			gamdb33.findOne({_id: req.body.pName}, function (err, docs) {
 				//res.render('gmess1', { gmedtta: x, idGot: req.body.id});
-				if(err){
-					res.send("gameNotFound");
-				} else{
+
+				if (docs){
 				var doc = {
 						gmeStatus: docs.gmeStatus
 					, syncTime: docs.syncTime
@@ -93,7 +92,9 @@ module.exports = function(passport){
 										};
 				res.send(JSON.stringify(doc));
 			}
-
+			else{
+				res.send("gameNotFound");
+			}
 		});
 
 	}
