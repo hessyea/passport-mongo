@@ -163,7 +163,7 @@ module.exports = function(passport){
 				function (err, numReplaced) {
 
 				});
-
+				res.send(req.body.pNr);
 	}
 	);
 	/* Match GameStart POST */
