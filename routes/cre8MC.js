@@ -1,5 +1,5 @@
 
-module.exports = function(docsSelf,docsOther) {
+module.exports = function(docsSelf,docsOther,date22) {
 
 				var doc = {
             gmeStatus: "starting"
@@ -8,6 +8,8 @@ module.exports = function(docsSelf,docsOther) {
 					, p2Name: docsOther._id
 					, p1Stat: ""
 					, p2Stat: ""
+					, p1cin: date22
+					, p2cin: date22
 					, curryPos: ""
 					, shotXY1: docsSelf.myxY
 					, shotXY2: docsOther.myxY

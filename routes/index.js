@@ -75,6 +75,9 @@ module.exports = function(passport){
 			var x = null;
 			gamdb33.findOne({_id: req.body.pName}, function (err, docs) {
 				//res.render('gmess1', { gmedtta: x, idGot: req.body.id});
+				if(err){
+					res.send("gameNotFound");
+				} else{
 				var doc = {
 						gmeStatus: docs.gmeStatus
 					, syncTime: docs.syncTime
@@ -88,11 +91,9 @@ module.exports = function(passport){
 					, winner: docs.winner
 
 										};
-
-
-
-
 				res.send(JSON.stringify(doc));
+			}
+
 		});
 
 	}
@@ -145,6 +146,24 @@ module.exports = function(passport){
 	}
 	);
 
+
+	router.post('/checkin',isAuthenticated , function (req, res) {
+		var pupdte;
+		if(req.body.pNr=="1"){
+				pupdte = setVal("p1cin",new Date());
+		}
+
+		else if(req.body.pNr=="2"){
+				pupdte = setVal("p2cin",new Date());
+		}
+			gamdb33.update({ _id: req.body.mGId },pupdte,
+				{ multi: false },
+				function (err, numReplaced) {
+
+				});
+
+	}
+	);
 	/* Match GameStart POST */
 	router.post('/autoMatch',isAuthenticated , function (req, res) {
 		gamdb33.findOne({p2Name: req.body._id}, function (err, docsMyGame) {
@@ -157,7 +176,7 @@ module.exports = function(passport){
 					if(docsOther[0]){
 						console.log(docsOther+"---!= null");
 						gamdb33.findOne({_id: req.body._id}, function (err, docsSelf) {
-							gamdb33.insert(createMtchSC(docsSelf,docsOther[0]),function (err, newDoc) {
+							gamdb33.insert(createMtchSC(docsSelf,docsOther[0],new Date()),function (err, newDoc) {
 								gamdb33.update({ _id: req.body._id },setVal("lookingFP","false"),
 									{ multi: false },
 									function (err, numReplaced) {
