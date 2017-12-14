@@ -125,8 +125,7 @@ module.exports = function(passport){
 	router.post('/sndMap',isAuthenticated , function (req, res) {
 
 	res.setHeader('Content-Type', 'application/json');
-	var map = {map22: req.body.maP};
-	console.log(req.body.maP);
+	console.log("sndMap++"+req.body.maP+" "+req.body.pmNR);
 	gamdb33.update({ _id: req.body.gID },setVal(req.body.pmNR,req.body.maP),
 			{ multi: false },
 			function (err, numReplaced) {
