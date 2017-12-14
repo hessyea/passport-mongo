@@ -110,7 +110,7 @@ module.exports = function(passport){
 							res.send(docs.mppP1);
 					  }
 						else if (req.body.mpName == "1") {
-							console.log(docs.mppP2+"-------+++");
+							//console.log(docs.mppP2+"-------+++");
 							res.send(docs.mppP2);
 						}
 					}
@@ -125,11 +125,11 @@ module.exports = function(passport){
 	router.post('/sndMap',isAuthenticated , function (req, res) {
 
 	res.setHeader('Content-Type', 'application/json');
-	console.log("sndMap++"+req.body.maP+" "+req.body.pmNR);
+	console.log("sndMap++"+" "+req.body.pmNR);
 	gamdb33.update({ _id: req.body.gID },setVal(req.body.pmNR,req.body.maP),
 			{ multi: false },
 			function (err, numReplaced) {
-				console.log(err+" nr "+numReplaced+"iiiii")
+				console.log(err+" nr "+numReplaced+"iiiii"+req.body.gID+)
 					res.send("ok");
 			});
 	});
