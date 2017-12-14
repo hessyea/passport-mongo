@@ -88,7 +88,6 @@ module.exports = function(passport){
 					, shotXY1: docs.shotXY1
 					, shotXY2: docs.shotXY2
 					, winner: docs.winner
-					, maptesz: docs.mppP2
 
 										};
 				res.send(JSON.stringify(doc));
