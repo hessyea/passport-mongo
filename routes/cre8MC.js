@@ -13,6 +13,7 @@ module.exports = function(docsSelf,docsOther,date22) {
 					, curryPos: ""
 					, shotXY1: docsSelf.myxY
 					, shotXY2: docsOther.myxY
+					, shotXY3: ""
 					, winner: ""
 					, mppP1: ""
 					, mppP2: ""
