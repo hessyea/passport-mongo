@@ -129,6 +129,7 @@ module.exports = function(passport){
 	gamdb33.update({ _id: req.body.gID },setVal(req.body.pmNR,req.body.maP),
 			{ multi: false },
 			function (err, numReplaced) {
+				console.log(err+" nr "+numReplaced+"iiiii")
 					res.send("ok");
 			});
 	});
