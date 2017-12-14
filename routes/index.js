@@ -108,9 +108,10 @@ module.exports = function(passport){
 				if(req.body.mpNr == "1" ||req.body.mpNr == "2" ){
 						if(req.body.mpName == "2"){
 							res.send(docs.mppP1);
+							console.log("+++-----");
 					  }
 						else if (req.body.mpName == "1") {
-							//console.log(docs.mppP2+"-------+++");
+							console.log("-------+++");
 							res.send(docs.mppP2);
 						}
 					}
