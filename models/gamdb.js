@@ -8,7 +8,7 @@ db.ensureIndex({ fieldName: 'createdAt', expireAfterSeconds: 600 }, function (er
 });
 db.ensureIndex({ fieldName: 'timeout', expireAfterSeconds: 5 }, function (err) {
 });
-db.ensureIndex({ fieldName: 'p1cin', expireAfterSeconds: 4 }, function (err) {#
+db.ensureIndex({ fieldName: 'p1cin', expireAfterSeconds: 4 }, function (err) {
   console.log("TimeOut P1");
 });
 db.ensureIndex({ fieldName: 'p2cin', expireAfterSeconds: 4 }, function (err) {
