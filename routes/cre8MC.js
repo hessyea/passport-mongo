@@ -16,6 +16,7 @@ module.exports = function(docsSelf,docsOther,date22) {
 					, winner: ""
 					, mppP1: ""
 					, mppP2: ""
+					, mppP3: ""
 
                			};
 				return doc;
