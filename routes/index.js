@@ -105,7 +105,7 @@ module.exports = function(passport){
 			gamdb33.findOne({_id: req.body.mGId}, function (err, docs) {
 				//res.render('gmess1', { gmedtta: x, idGot: req.body.id});
 				console.log(req.body.mpNr);
-				if(req.body.mpNr == "1" ||req.body.mpNr == "2" ){
+				if(docs){if(req.body.mpNr == "1" ||req.body.mpNr == "2" ){
 						if(req.body.mpName == "2"){
 							res.send(docs.mppP1);
 							console.log("+++-----");
@@ -118,6 +118,9 @@ module.exports = function(passport){
 				else{
 					res.send(docs.mppP3);
 				}
+			} else {
+				console.log("ERR++++");
+			}
 				});
 
 	}
@@ -125,7 +128,6 @@ module.exports = function(passport){
 
 	router.post('/sndMap',isAuthenticated , function (req, res) {
 
-	res.setHeader('Content-Type', 'application/json');
 	console.log("sndMap++"+" "+req.body.pmNR);
 	gamdb33.update({ _id: req.body.gID },setVal(req.body.pmNR,req.body.maP),
 			{ multi: false },
