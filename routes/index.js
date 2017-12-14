@@ -104,7 +104,7 @@ module.exports = function(passport){
 	router.post('/recMap',isAuthenticated , function (req, res) {
 			gamdb33.findOne({_id: req.body.mGId}, function (err, docs) {
 				//res.render('gmess1', { gmedtta: x, idGot: req.body.id});
-				//console.log(docs.map22+"-------");
+				console.log(docs.mpNr+"-------+++");
 				if(req.body.mpNr == "1"){
 						if(req.body.mpName == "2"){
 							res.send(docs.mppP1);
