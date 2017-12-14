@@ -105,13 +105,13 @@ module.exports = function(passport){
 			gamdb33.findOne({_id: req.body.mGId}, function (err, docs) {
 				//res.render('gmess1', { gmedtta: x, idGot: req.body.id});
 				console.log(req.body.mpNr);
-				if(req.body.mpNr == "1"){
+				if(req.body.mpNr == "1st"){
 						if(req.body.mpName == "2"){
 							res.send(docs.mppP1);
 					  }
 						else if (req.body.mpName == "1") {
-							console.log(docs.mppP2);
-							res.send(docs.mppP2+"-------+++");
+							console.log(docs.mppP2+"-------+++");
+							res.send(docs.mppP2);
 						}
 					}
 				else{
