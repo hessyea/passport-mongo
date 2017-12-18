@@ -177,7 +177,7 @@ module.exports = function(passport){
 	);
 	/* Match GameStart POST */
 	router.post('/autoMatch',isAuthenticated , function (req, res) {
-		gamdb33.findOne({p2Name: req.body._id}, function (err, docsMyGame) {
+		gamdb33.findOne({indMe: req.body._id}, function (err, docsMyGame) {
 			//res.render('gmess1', { gmedtta: x, idGot: req.body.id});
 			console.log("docsMyGame-------");
 			if(docsMyGame == null){

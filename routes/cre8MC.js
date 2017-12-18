@@ -5,9 +5,10 @@ module.exports = function(docsSelf,docsOther,date22) {
             gmeStatus: "starting"
 					, syncTime: ""
 					, p1Name: docsSelf.p1Name
-					, p2Name: docsOther._id
+					, p2Name: docsOther.p1Name
 					, p1Stat: ""
 					, p2Stat: ""
+					, indMe: docsOther._id
 					, p1cin: date22
 					, p2cin: date22
 					, curryPos: ""
@@ -18,6 +19,7 @@ module.exports = function(docsSelf,docsOther,date22) {
 					, mppP1: ""
 					, mppP2: ""
 					, mppP3: ""
+					, mppP3Stat: ""
 
                			};
 				return doc;
