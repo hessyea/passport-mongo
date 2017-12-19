@@ -20,6 +20,8 @@ module.exports = function(docsSelf,docsOther,date22) {
 					, mppP2: ""
 					, mppP3: ""
 					, mppP3Stat: ""
+					, q1stshot: ""
+					, q2stshot: ""
 
                			};
 				return doc;

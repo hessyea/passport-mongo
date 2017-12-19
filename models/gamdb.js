@@ -6,7 +6,7 @@ var db = new Datastore({
 });
 db.ensureIndex({ fieldName: 'createdAt', expireAfterSeconds: 600 }, function (err) {
 });
-db.ensureIndex({ fieldName: 'timeout', expireAfterSeconds: 5 }, function (err) {
+db.ensureIndex({ fieldName: 'timeout', expireAfterSeconds: 6 }, function (err) {
 });
 db.ensureIndex({ fieldName: 'p1cin', expireAfterSeconds: 4 }, function (err) {
 

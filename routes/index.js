@@ -89,6 +89,8 @@ module.exports = function(passport){
 					, shotXY2: docs.shotXY2
 					, shotXY3: docs.shotXY3
 					, winner: docs.winner
+					, q1stshot: docs.q1stshot
+					, q2stshot:docs.q2stshot
 
 
 										};
