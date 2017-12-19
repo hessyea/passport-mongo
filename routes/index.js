@@ -165,7 +165,7 @@ module.exports = function(passport){
 	router.post('/winnaSet',isAuthenticated , function (req, res) {
 
 
-		gamdb33.findOne({_id: req.body._id}, function (err, docsMyGame) {
+		gamdb33.findOne({_id: req.body.mGId}, function (err, docsMyGame) {
 			var pupdte;
 			if(req.body.round == "1"){
 					if(docsMyGame.wna1 == ""){
