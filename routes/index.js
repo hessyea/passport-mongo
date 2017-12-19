@@ -88,6 +88,9 @@ module.exports = function(passport){
 					, shotXY1: docs.shotXY1
 					, shotXY2: docs.shotXY2
 					, shotXY3: docs.shotXY3
+					, wna1: docs.wna1
+					, wna2: docs.wna2
+					, wna3: docs.wna3
 					, winner: docs.winner
 					, q1stshot: docs.q1stshot
 					, q2stshot:docs.q2stshot
@@ -159,6 +162,48 @@ module.exports = function(passport){
 	}
 	);
 
+	router.post('/winnaSet',isAuthenticated , function (req, res) {
+
+
+		gamdb33.findOne({_id: req.body._id}, function (err, docsMyGame) {
+			var pupdte;
+			if(req.body.round == "1"){
+					if(docsMyGame.wna1 == ""){
+						pupdte = setVal("wna1",req.body.name);
+					}
+					else{
+						pupdte = null
+					}
+			}
+			else if(req.body.round == "2"){
+					if(docsMyGame.wna2 == ""){
+						pupdte = setVal("wna2",req.body.name);
+					}
+					else{
+						pupdte = null
+					}
+			}
+			else if(req.body.round == "3"){
+					if(docsMyGame.wna3 == ""){
+						pupdte = setVal("wna3",req.body.name);
+					}
+					else{
+						pupdte = null
+					}
+			}
+			if (pupdte != null){
+			gamdb33.update({ _id: req.body.mGId },pupdte,
+				{ multi: false },
+				function (err, numReplaced) {
+
+				});
+				res.send("wuinna");
+			} else{
+				res.send("tool8");
+			}
+
+				});
+	});
 
 	router.post('/checkin',isAuthenticated , function (req, res) {
 		var pupdte;

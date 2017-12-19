@@ -16,6 +16,9 @@ module.exports = function(docsSelf,docsOther,date22) {
 					, shotXY2: docsOther.myxY
 					, shotXY3: ""
 					, winner: ""
+					, wna1: ""
+					, wna2: ""
+					, wna3: ""
 					, mppP1: ""
 					, mppP2: ""
 					, mppP3: ""
