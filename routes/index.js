@@ -167,7 +167,7 @@ module.exports = function(passport){
 
 		gamdb33.findOne({_id: req.body.mGId}, function (err, docsMyGame) {
 			var pupdte;
-			if (docs){if(req.body.round == "1"){
+			if (docsMyGame){if(req.body.round == "1"){
 					if(docsMyGame.wna1 == ""){
 						pupdte = setVal("wna1",req.body.name);
 					}
