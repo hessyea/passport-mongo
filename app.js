@@ -22,7 +22,7 @@ app.use(cookieParser());
 app.use(session({
   name: 'JSESSION',
   secret: 'mySecretKey33st',
-  store: new MemoryStore(options)
+  store: new MemoryStore()
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
