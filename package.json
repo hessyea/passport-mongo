@@ -9,6 +9,7 @@
     "bcrypt-nodejs": "*",
     "body-parser": "~1.0.0",
     "connect-flash": "*",
+    "session-memory-store": "*",
     "cookie-parser": "~1.0.1",
     "debug": "~0.7.4",
     "express": "~4.2.0",
