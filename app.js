@@ -5,7 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-
+var MemoryStore = require('session-memory-store')(session);
 var app = express();
 
 // view engine setup
@@ -17,13 +17,18 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
+app.use(session({
+  name: 'JSESSION',
+  secret: 'mySecretKey33st',
+  store: new MemoryStore(options)
+}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Configuring Passport
 var passport = require('passport');
 var expressSession = require('express-session');
 // TODO - Why Do we need this key ?
-app.use(expressSession({secret: 'mySecretKey33s'}));
+//app.use(expressSession({secret: 'mySecretKey33s'}));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -59,4 +64,3 @@ if (app.get('env') === 'development') {
 }
 
 module.exports = app;
-
