@@ -112,7 +112,7 @@ module.exports = function(passport){
 			gamdb33.findOne({_id: req.body.mGId}, function (err, docs) {
 				//res.render('gmess1', { gmedtta: x, idGot: req.body.id});
 				console.log(req.body.mpNr);
-				if(docs != null){if(req.body.mpNr == "1" ||req.body.mpNr == "2" ){
+				if(docs){if(req.body.mpNr == "1" ||req.body.mpNr == "2" ){
 						if(req.body.mpName == "2"){
 							res.send(docs.mppP1);
 							console.log("+++-----");
@@ -167,7 +167,7 @@ module.exports = function(passport){
 
 		gamdb33.findOne({_id: req.body.mGId}, function (err, docsMyGame) {
 			var pupdte;
-			if(req.body.round == "1"){
+			if (docs){if(req.body.round == "1"){
 					if(docsMyGame.wna1 == ""){
 						pupdte = setVal("wna1",req.body.name);
 					}
@@ -201,7 +201,7 @@ module.exports = function(passport){
 			} else{
 				res.send("tool8");
 			}
-
+		}
 				});
 	});
 
@@ -227,13 +227,14 @@ module.exports = function(passport){
 		gamdb33.findOne({indMe: req.body._id}, function (err, docsMyGame) {
 			//res.render('gmess1', { gmedtta: x, idGot: req.body.id});
 			console.log("docsMyGame-------");
-			if(docsMyGame == null){
+			if(docsMyGame){
 				console.log("notNull-------");
 				gamdb33.find({lookingFP: { $exists: true }, lookingFP: 'true' , $not: { _id: req.body._id }}).sort({ createdAt: -1 }).exec(function (err, docsOther) {
 					console.log(docsOther+"-------");
 					if(docsOther[0]){
 						console.log(docsOther+"---!= null");
 						gamdb33.findOne({_id: req.body._id}, function (err, docsSelf) {
+							if(docsSelf){
 							gamdb33.insert(createMtchSC(docsSelf,docsOther[0],new Date()),function (err, newDoc) {
 								gamdb33.update({ _id: req.body._id },setVal("lookingFP","false"),
 									{ multi: false },
@@ -250,7 +251,7 @@ module.exports = function(passport){
 								res.send(newDoc._id+";1");
 							});
 
-								});
+						}});
 							} else {
 
 								gamdb33.update({ _id: req.body._id },setVal("timeout",new Date()),
