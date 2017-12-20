@@ -227,14 +227,14 @@ module.exports = function(passport){
 		gamdb33.findOne({indMe: req.body._id}, function (err, docsMyGame) {
 			//res.render('gmess1', { gmedtta: x, idGot: req.body.id});
 			console.log("docsMyGame-------");
-			if(docsMyGame){
+			if(docsMyGame == null){
 				console.log("notNull-------");
 				gamdb33.find({lookingFP: { $exists: true }, lookingFP: 'true' , $not: { _id: req.body._id }}).sort({ createdAt: -1 }).exec(function (err, docsOther) {
 					console.log(docsOther+"-------");
 					if(docsOther[0]){
 						console.log(docsOther+"---!= null");
 						gamdb33.findOne({_id: req.body._id}, function (err, docsSelf) {
-							if(docsSelf){
+
 							gamdb33.insert(createMtchSC(docsSelf,docsOther[0],new Date()),function (err, newDoc) {
 								gamdb33.update({ _id: req.body._id },setVal("lookingFP","false"),
 									{ multi: false },
@@ -251,7 +251,7 @@ module.exports = function(passport){
 								res.send(newDoc._id+";1");
 							});
 
-						}});
+						});
 							} else {
 
 								gamdb33.update({ _id: req.body._id },setVal("timeout",new Date()),
