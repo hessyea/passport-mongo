@@ -111,14 +111,14 @@ module.exports = function(passport){
 	router.post('/recMap',isAuthenticated , function (req, res) {
 			gamdb33.findOne({_id: req.body.mGId}, function (err, docs) {
 				//res.render('gmess1', { gmedtta: x, idGot: req.body.id});
-				console.log(req.body.mpNr);
+				//console.log(req.body.mpNr);
 				if(docs){if(req.body.mpNr == "1" ||req.body.mpNr == "2" ){
 						if(req.body.mpName == "2"){
 							res.send(docs.mppP1);
-							console.log("+++-----");
+							//console.log("+++-----");
 					  }
 						else if (req.body.mpName == "1") {
-							console.log("-------+++");
+							//console.log("-------+++");
 							res.send(docs.mppP2);
 						}
 					}
@@ -126,7 +126,7 @@ module.exports = function(passport){
 					res.send(docs.mppP3);
 				}
 			} else {
-				console.log("ERR++++");
+				//console.log("ERR++++");
 			}
 				});
 
@@ -135,11 +135,11 @@ module.exports = function(passport){
 
 	router.post('/sndMap',isAuthenticated , function (req, res) {
 
-	console.log("sndMap++"+" "+req.body.pmNR);
+	//console.log("sndMap++"+" "+req.body.pmNR);
 	gamdb33.update({ _id: req.body.gID },setVal(req.body.pmNR,req.body.maP),
 			{ multi: false },
 			function (err, numReplaced) {
-				console.log(err+" nr "+numReplaced+"iiiii"+req.body.gID)
+				//console.log(err+" nr "+numReplaced+"iiiii"+req.body.gID)
 					res.send("ok");
 			});
 	});
@@ -226,13 +226,13 @@ module.exports = function(passport){
 	router.post('/autoMatch',isAuthenticated , function (req, res) {
 		gamdb33.findOne({indMe: req.body._id}, function (err, docsMyGame) {
 			//res.render('gmess1', { gmedtta: x, idGot: req.body.id});
-			console.log("docsMyGame-------");
+			//console.log("docsMyGame-------");
 			if(docsMyGame == null){
-				console.log("notNull-------");
+				//console.log("notNull-------");
 				gamdb33.find({lookingFP: { $exists: true }, lookingFP: 'true' , $not: { _id: req.body._id }}).sort({ createdAt: -1 }).exec(function (err, docsOther) {
-					console.log(docsOther+"-------");
+					//console.log(docsOther+"-------");
 					if(docsOther[0]){
-						console.log(docsOther+"---!= null");
+						//console.log(docsOther+"---!= null");
 						gamdb33.findOne({_id: req.body._id}, function (err, docsSelf) {
 
 							gamdb33.insert(createMtchSC(docsSelf,docsOther[0],new Date()),function (err, newDoc) {
@@ -247,7 +247,7 @@ module.exports = function(passport){
 
 										});
 									//res.render('gmess1', { gmedtta: x, idGot: req.body.id});
-								console.log("d!= null")
+								//console.log("d!= null")
 								res.send(newDoc._id+";1");
 							});
 
