@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.connect(process.env.PROD_MONGODB, function(err){
+mongoose.connect(process.env.PROD_MONGODB,{useMongoClient}: true, function(err){
     if(err){
         console.log('database not connected');
     }
