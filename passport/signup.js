@@ -24,21 +24,18 @@ module.exports = function(passport){
                     } else {
                         // if there is no user with that email
                         // create the user
-												var doc = {      username: req.param('username')
+												var doc = new User(){      username: req.param('username')
                				, password: createHash(req.param("password"))
                				, email: req.param('email')
-               				, firstName: req.param('firstName')
-               				, lastName: req.param('lastName')
-               				};
-											User.insert(doc, function (err, newDoc) {
-												if (err){
-                                console.log('Error in Saving user: '+err);
-                                throw err;
-																}
-												console.log('User Registration succesful');
-				                return done(null, newDoc);
-											});
+										});
 
+										doc.save(function (err, fluffy) {
+										  if (err) return console.error(err);
+											console.log('User Registration succesful');
+											return done(null, fluffy);
+										});
+
+											
 
 
                     }
