@@ -1,7 +1,15 @@
-var db = require('mongo-lite').connect(process.env.PROD_MONGODB,['users']);
+var mongoose = require('mongoose');
+mongoose.connect(process.env.PROD_MONGODB, function(err){
+    if(err){
+        console.log('database not connected');
+    }
+});
+var Schema = mongoose.Schema;
+var userschema = new Schema ( {      username: String
+               				, password: String
+               				, email: String
+               				});
 
-db.users22 = db.collection('users');
-db.users22.insert({title: 'first'}, function(err, doc){});
-var exp = db.users22;
-
-module.exports = exp;
+var user = mongoose.model('users', userschema);
+user.insert({username: 'first'}, function(err, doc){});
+module.exports = user;
