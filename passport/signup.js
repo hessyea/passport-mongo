@@ -1,6 +1,8 @@
 var LocalStrategy   = require('passport-local').Strategy;
-var User22 = require('../models/user');
+var User22 = require('mongoose');
+
 var bCrypt = require('bcrypt-nodejs');
+
 var Schema = User22.Schema;
 
 var userschema = new Schema ( {      username: String
