@@ -1,10 +1,10 @@
 var LocalStrategy   = require('passport-local').Strategy;
-var User22 = require('mongoose');
-var User44 = require('../models/user');
+var User22 = require('../models/user');
+
 
 var bCrypt = require('bcrypt-nodejs');
 
-var userzs = User22.model("users");
+var userzs = User22;
 
 
 module.exports = function(passport){
