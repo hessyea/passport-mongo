@@ -1,12 +1,11 @@
 var LocalStrategy   = require('passport-local').Strategy;
 var mongoose = require('mongoose');
 
-var User22 = require('../models/user');
+
 
 
 var bCrypt = require('bcrypt-nodejs');
 
-var userzs = User22;
 
 
 module.exports = function(passport){
@@ -18,7 +17,7 @@ module.exports = function(passport){
 
             findOrCreateUser = function(){
                 // find a user in Mongo with provided username
-                userzs.findOne({ 'username' :  req.param('username') }, function(err, user) {
+                users44.findOne({ 'username' :  req.param('username') }, function(err, user) {
                     // In case of any error, return using the done method
                     if (err){
                         console.log('Error in SignUp: '+err);
@@ -31,7 +30,7 @@ module.exports = function(passport){
                     } else {
                         // if there is no user with that email
                         // create the user
-												var doc = new userzs({      username: req.param('username')
+												var doc = new users44({      username: req.param('username')
                				, password: createHash(req.param("password"))
                				, email: req.param('email')
 										});

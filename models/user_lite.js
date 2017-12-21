@@ -6,6 +6,6 @@ var userschema = new Schema ( {      username: String
                				, email: String
                				});
 
-var user22 = mongoose.model('users', userschema);
+var user22 = mongoose.model('users44', userschema);
 
 module.exports = user22;
