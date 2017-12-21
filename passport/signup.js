@@ -1,6 +1,7 @@
 var LocalStrategy   = require('passport-local').Strategy;
 var User22 = require('../models/user');
 var bCrypt = require('bcrypt-nodejs');
+var Schema = User22.Schema;
 
 var userschema = new Schema ( {      username: String
                				, password: String
