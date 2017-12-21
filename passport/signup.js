@@ -3,14 +3,7 @@ var User22 = require('mongoose');
 
 var bCrypt = require('bcrypt-nodejs');
 
-var Schema = User22.Schema;
-
-var userschema = new Schema ( {      username: String
-               				, password: String
-               				, email: String
-               				});
-
-var userzs = User22.model('users', userschema);
+var userzs = User22.model("users");
 
 
 module.exports = function(passport){
