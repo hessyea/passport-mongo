@@ -10,6 +10,10 @@ var userschema = new Schema ( {      username: String
                				, email: String
                				});
 
-var user = mongoose.model('users', userschema);
-user.insert({username: 'first'}, function(err, doc){});
-module.exports = user;
+var user22 = mongoose.model('users', userschema);
+var fluffy = new user22({ username: 'fluffy101' });
+fluffy.save(function (err, fluffy) {
+  if (err) return console.error(err);
+
+});
+module.exports = user22;
