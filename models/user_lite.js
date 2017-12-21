@@ -1,9 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.connect(process.env.PROD_MONGODB,{useMongoClient}: true, function(err){
-    if(err){
-        console.log('database not connected');
-    }
-});
+mongoose.connect(process.env.PROD_MONGODB,{useMongoClient: true},function(err){});
 var Schema = mongoose.Schema;
 var userschema = new Schema ( {      username: String
                				, password: String
