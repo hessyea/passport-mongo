@@ -24,7 +24,7 @@ module.exports = function(passport){
                     } else {
                         // if there is no user with that email
                         // create the user
-												var doc = new User(){      username: req.param('username')
+												var doc = new User({      username: req.param('username')
                				, password: createHash(req.param("password"))
                				, email: req.param('email')
 										});
@@ -35,7 +35,7 @@ module.exports = function(passport){
 											return done(null, fluffy);
 										});
 
-											
+
 
 
                     }
