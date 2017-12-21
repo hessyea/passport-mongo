@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 
 
 var bCrypt = require('bcrypt-nodejs');
-
+var users44 = mongoose.model('users44');
 
 
 module.exports = function(passport){
