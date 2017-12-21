@@ -7,9 +7,5 @@ var userschema = new Schema ( {      username: String
                				});
 
 var user22 = mongoose.model('users', userschema);
-var fluffy = new user22({ username: 'fluffy101' });
-fluffy.save(function (err, fluffy) {
-  if (err) return console.error(err);
 
-});
-module.exports = user22;
+module.exports = mongoose;
